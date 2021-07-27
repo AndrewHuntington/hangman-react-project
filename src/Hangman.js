@@ -104,9 +104,11 @@ class Hangman extends Component {
         <p>Number wrong: {this.state.nWrong}</p>
         <p className="Hangman-word" data-hm-word>
           {(guessedWord = this.guessedWord())}
-          {this.checkWin(guessedWord) ? <WinScreen /> : null}
         </p>
         <div className="Hangman-btns">
+          {this.checkWin(guessedWord) ? (
+            <WinScreen replay={this.handleReset} />
+          ) : null}
           {this.state.nWrong === this.props.maxWrong ? (
             this.loseMsg()
           ) : (
