@@ -51,20 +51,6 @@ class Hangman extends Component {
     }));
   }
 
-  /** generateButtons: return array of letter buttons to render */
-  // generateButtons() {
-  //   return "abcdefghijklmnopqrstuvwxyz".split("").map((ltr) => (
-  //     <button
-  //       key={ltr}
-  //       value={ltr}
-  //       onClick={this.handleGuess}
-  //       disabled={this.state.guessed.has(ltr)}
-  //     >
-  //       {ltr}
-  //     </button>
-  //   ));
-  // }
-
   /** loseMsg: message to rendered upon player loss */
   loseMsg() {
     return (
@@ -102,9 +88,7 @@ class Hangman extends Component {
           alt={`${this.state.nWrong} out of ${this.props.maxWrong} wrong guesses`}
         />
         <p>Number wrong: {this.state.nWrong}</p>
-        <p className="Hangman-word" data-hm-word>
-          {(guessedWord = this.guessedWord())}
-        </p>
+        <p className="Hangman-word">{(guessedWord = this.guessedWord())}</p>
         <div className="Hangman-btns">
           {this.checkWin(guessedWord) ? (
             <WinScreen replay={this.handleReset} />
